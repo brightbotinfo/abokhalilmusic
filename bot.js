@@ -326,8 +326,6 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`**${song.title}**, is now playing!`);
 }
 
-}
-});
 
 client.on('message', message => {
     if (message.content === 'help') {
