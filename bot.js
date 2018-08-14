@@ -200,6 +200,7 @@ client.on('message', async msg => {
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
 
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
+		message.channel.send("Ok, skipped!")
         return undefined;
         
 	} else if (command === `stop`) {
@@ -209,6 +210,7 @@ client.on('message', async msg => {
         
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
+		message.channel.send("Ok, stopped & disconnected from your Voice channel")
         return undefined;
         
 	} else if (command === `vol`) {
