@@ -200,7 +200,7 @@ client.on('message', async msg => {
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
 
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
-		message.channel.send("Ok, skipped!")
+		return msg.channel.send(`Ok, skipped!`);
         return undefined;
         
 	} else if (command === `stop`) {
