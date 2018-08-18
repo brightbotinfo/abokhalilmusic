@@ -122,15 +122,6 @@ client.on('message', async msg => {
 			});
 					
 /////////////////					
-                    var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
-                    
-				} catch (err) {
-
-					console.error(err);
-					return msg.channel.send("I didn't find any results!");
-				}
-			}
-
             return handleVideo(video, msg, voiceChannel);
             
         }
