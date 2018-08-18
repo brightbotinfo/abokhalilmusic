@@ -124,7 +124,6 @@ client.on('message', async msg => {
 /////////////////					
             return handleVideo(video, msg, voiceChannel);
             
-        }
         
 	 else if (command === `skip`) {
 
