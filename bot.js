@@ -120,7 +120,6 @@ client.on('message', async msg => {
 					message.channel.sendEmbed(play_info);
 				});
 			});
-		}
 					
 /////////////////					
                     var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
