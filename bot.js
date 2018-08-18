@@ -121,7 +121,6 @@ client.on('message', async msg => {
 				});
 			});
 		}
-	}
 					
 /////////////////					
                     var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
@@ -287,6 +286,36 @@ client.on('message', message => {
       message.channel.send(helpEmbed);
     }
 });
+
+
+
+
+
+
+
+
+
+client.on('ready', () => {
+	console.log('╔[══════════[           abokhalil welcome bot               ]══════════════════════════]╗');
+	console.log(`Logged in as * [ " ${client.user.username} " ]`);
+	console.log('')
+	console.log('Informations :')
+	console.log('')
+	console.log(`servers! [ " ${client.guilds.size} " ]`);
+	console.log(`Users! [ " ${client.users.size} " ]`);
+	console.log(`channels! [ " ${client.channels.size} " ]`);
+  console.log('╚[══════════[           abokhalil welcome bot               ]══════════════════════════]╝')
+	console.log("BOT ONLINE");
+   });
+
+ 
+   
+
+
+
+
+
+
 
 
 client.login("NDc4OTI1ODA2NzczNjAwMjU2.DlTQAw.CDyLrY2OajkNeojt2vah0DDba4A")
