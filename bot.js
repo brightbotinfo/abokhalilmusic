@@ -43,58 +43,7 @@ client.on('message', async msg =>{
     msg.channel.send(embed);
     }
 });
-/////////////////////////
-////////////////////////
-//////////////////////
-client.on('message', async msg =>{
-	if (msg.author.bot) return undefined;
-    if (!msg.content.startsWith(prefix)) return undefined;
-    
-    let args = msg.content.split(' ');
 
-	let command = msg.content.toLowerCase().split(" ")[0];
-	command = command.slice(prefix.length)
-
-    if(command === `avatar`){
-	if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
-        let mentions = msg.mentions.members.first()
-        if(!mentions) {
-          let sicon = msg.author.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setImage(msg.author.avatarURL)
-          .setColor("#5074b3")
-          msg.channel.send({embed})
-        } else {
-          let sicon = mentions.user.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setColor("#5074b3")
-          .setImage(sicon)
-          msg.channel.send({embed})
-        }
-    };
-});
-/////////////////////////
-////////////////////////
-//////////////////////
-/////////////////////////
-////////////////////////
-//////////////////////
-client.on('message', async msg => { 
-	if (msg.author.bot) return undefined;
-    if (!msg.content.startsWith(prefix)) return undefined;
-    
-    let args = msg.content.split(' ');
-
-	let command = msg.content.toLowerCase().split(" ")[0];
-	command = command.slice(prefix.length)
-if(command === "gif"){
-   var searchPromise = modSearchGif.searchForGif("spider");
-
-   searchPromise.then((gif) => {
-     msg.channel.send(gif);
-   })  
-}
-});
 /////////////////////////
 ////////////////////////
 //////////////////////
@@ -117,7 +66,7 @@ client.on('message', async msg => {
 	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
         
-        if (!voiceChannel) return msg.channel.send("I can't find you in any voice channel!");
+        if (!voiceChannel) return msg.channel.send("You Are Not In Voice Channel !");
         
         const permissions = voiceChannel.permissionsFor(msg.client.user);
         
@@ -160,7 +109,7 @@ client.on('message', async msg => {
 					var videos = await youtube.searchVideos(searchString, 5);
 					let index = 0;
                     const embed1 = new Discord.RichEmbed()
-                    .setTitle(":mag_right:  YouTube Search Results :")
+                    .setTitle("🔍 YouTube Search Results :")
                     .setDescription(`
                     ${videos.map(video2 => `${++index}. **${video2.title}**`).join('\n')}`)
                     
@@ -168,19 +117,6 @@ client.on('message', async msg => {
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 					
 /////////////////					
-					try {
-
-						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
-							maxMatches: 1,
-							time: 15000,
-							errors: ['time']
-						});
-					} catch (err) {
-						console.error(err);
-						return msg.channel.send('No one respone a number!!');
-                    }
-                    
-					const videoIndex = parseInt(response.first().content);
                     var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
                     
 				} catch (err) {
@@ -200,7 +136,6 @@ client.on('message', async msg => {
         if (!serverQueue) return msg.channel.send("There is no Queue to skip!!");
 
 		serverQueue.connection.dispatcher.end('Ok, skipped!');
-		return msg.channel.send(`Ok, skipped!`);
         return undefined;
         
 	} else if (command === `stop`) {
@@ -210,7 +145,6 @@ client.on('message', async msg => {
         
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Ok, stopped & disconnected from your Voice channel');
-		message.channel.send("Ok, stopped & disconnected from your Voice channel")
         return undefined;
         
 	} else if (command === `vol`) {
@@ -347,17 +281,5 @@ client.on('message', message => {
     }
 });
 
-client.on('message', message => {
-    if (message.content === 'general_commands') {
-        let helpEmbed = new Discord.RichEmbed()
-        .setTitle('')
-        .setTitle('**أوامر عامة...**')
-        .addField('avatar', "افاتار الشخص المطلوب")
-        .addField('gif', 'البحث عن جيف انت تطلبه')
-        .addField('ping', 'معرفة ping البوت')
-        .setFooter('المزيد قريبا ان شاء الله!')
-      message.channel.send(helpEmbed);
-    }
-});
 
-client.login(process.env.BOT_TOKEN);
+client.login("NDc4OTI1ODA2NzczNjAwMjU2.DlTQAw.CDyLrY2OajkNeojt2vah0DDba4A")
