@@ -103,18 +103,26 @@ client.on('message', async msg => {
 
                 var video = await youtube.getVideo(url);
                 
-			} catch (error) {
-				try {
+		else {
 
-					var videos = await youtube.searchVideos(searchString, 5);
-					let index = 0;
-                    const embed1 = new Discord.RichEmbed()
-                    .setTitle("🔍 YouTube Search Results :")
-                    .setDescription(`
-                    ${videos.map(video2 => `${++index}. **${video2.title}**`).join('\n')}`)
-                    
-					.setColor("#f7abab")
-					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
+			isPlaying = true;
+			getID(args, function(id) {
+				queue.push('placeholder');
+				playMusic(id, message);
+				fetchVideoInfo(id, function(err, videoInfo) {
+					if (err) throw new Error(err);
+					let play_info = new Discord.RichEmbed()
+						.setAuthor(`Added To Queue`, message.author.avatarURL)
+						.setDescription(`**${videoInfo.title}**`)
+						.setColor("RANDOM")
+						.setFooter('بطلب من: ' + message.author.tag)
+						.setThumbnail(videoInfo.thumbnailUrl)
+					//.setDescription('?')
+					message.channel.sendEmbed(play_info);
+				});
+			});
+		}
+	}
 					
 /////////////////					
                     var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
