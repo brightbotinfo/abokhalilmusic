@@ -103,7 +103,6 @@ client.on('message', async msg => {
 
                 var video = await youtube.getVideo(url);
                 
-		else {
 
 			isPlaying = true;
 			getID(args, function(id) {
