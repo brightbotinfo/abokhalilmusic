@@ -308,4 +308,4 @@ client.on('ready', () => {
 
 
 
-client.login("NDc4OTI1ODA2NzczNjAwMjU2.DlTQAw.CDyLrY2OajkNeojt2vah0DDba4A")
+// client.login("NDc4OTI1ODA2NzczNjAwMjU2.DlTQAw.CDyLrY2OajkNeojt2vah0DDba4A")
